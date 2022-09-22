@@ -8,6 +8,7 @@ public class StepTracker {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите новую цель по шагам");
         int newStepGoal = scanner.nextInt();
+
         if (newStepGoal >= 0) {
             stepGoal = newStepGoal;
             System.out.println("Новая цель установлена");

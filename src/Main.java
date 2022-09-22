@@ -8,16 +8,13 @@ public class Main {
 
         while (userInput != 0) { // работает
             if (userInput == 1) {
-
             } else if (userInput == 2) {
-
             } else if (userInput == 3) { // работает
                 StepTracker.setStepGoal();
-
-            } else {
+            } else { // работает
                 System.out.println("Извините, такой фукции пока нет.");
             }
-            printMenu(); // печатаем меню ещё раз перед завершением предыдущего действия
+            printMenu(); // печатаем меню ещё раз
             userInput = scanner.nextInt(); // повторное считывание данных от пользователя
         }
         System.out.println("Программа завершена");
