@@ -13,16 +13,19 @@ public class StepTracker {
     }
 
     static void showStepsByDays(int month) { // 1 шаги по дням
-        for (int i = 0; i < stepsMonthDayData[month-1].length-1; i++) {
+        for (int i = 0; i < stepsMonthDayData[month - 1].length; i++) {
+            if (i == stepsMonthDayData[month - 1].length - 1) {
+                System.out.println((i + 1) + " день: " + stepsMonthDayData[month - 1][i] + ". ");
+                break;
+            }
             System.out.print((i + 1) + " день: " + stepsMonthDayData[month - 1][i] + ", ");
         }
-        System.out.println("30 день: " + stepsMonthDayData[month-1][29]);
     }
 
     static void showStepsInMonth(int month) { // 2 шаги за месяц
         stepsInMonth = 0;
         for (int i = 0; i < stepsMonthDayData[month-1].length; i++) {
-            stepsInMonth = stepsMonthDayData[month-1][i] + stepsInMonth;
+            stepsInMonth += stepsMonthDayData[month-1][i];
         }
         System.out.println("За этот месяц вы сделали " + stepsInMonth + " шагов");
     }
@@ -38,13 +41,13 @@ public class StepTracker {
     }
 
     static void showMidStepsInMonth(int month) { // 4 среднее кол-во шагов
-        int midStepsInMonth = 0;
+        int midStepsInMonth;
         int sumStepsInMonth = 0;
         for (int i = 0; i < stepsMonthDayData[month-1].length; i++) {
             sumStepsInMonth = stepsMonthDayData[month-1][i] + sumStepsInMonth;
         }
-        midStepsInMonth = sumStepsInMonth/30;
-        System.out.println("В среднем за этот месяц вы сделали " + midStepsInMonth + " шагов");
+        midStepsInMonth = sumStepsInMonth/stepsMonthDayData[month-1].length;
+        System.out.println("В среднем за этот месяц вы сделали " + midStepsInMonth + " шагов в день");
     }
 
     static void showDistanceInMonth(int month) { // 5 пройденная дистанция в км
