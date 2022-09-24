@@ -5,7 +5,7 @@ public class StepTracker {
     static int[][] stepsMonthDayData = new int[12][30];
 
     static void setStepGoal(int steps) { // установка цели
-        steps = stepGoal;
+        stepGoal = steps;
     }
 
     static void addSteps(int month, int day, int steps) { // ввести шаги за день
@@ -64,5 +64,18 @@ public class StepTracker {
     }
 
     static void showBestInMonth(int month) { // 7 лучшая серия
+        int bestSeries = 0;
+        int tempSeries = 0;
+        for (int i = 0; i < 30; i++) {
+            if (stepsMonthDayData[month-1][i] >= stepGoal) {
+                tempSeries = tempSeries + 1;
+                if (tempSeries > bestSeries) {
+                    bestSeries = tempSeries;
+                }
+            } else {
+                tempSeries = 0;
+            }
+        }
+        System.out.println("Лучшая серия в этом месяце: " + bestSeries + " дней подряд");
     }
 }
